@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
-def utils = new Utilities(env, steps)
-node {
-  utils.mvn 'clean install'
-}
 
+class Utilities implements Serializable {
+  def steps
+  Utilities(steps) {this.steps = steps}
+  def mvn(args) {
+    steps.sh "${steps.tool 'Maven'}/bin/mvn -o ${args}"
+  }
+}
