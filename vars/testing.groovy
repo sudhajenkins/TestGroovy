@@ -1,7 +1,7 @@
 def call(){
     node {
         stage("Package artifact") {
-        sh "mvn package"
+        bat "mvn package"
     }
 
         }
