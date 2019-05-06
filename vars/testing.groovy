@@ -1,5 +1,12 @@
 #!/usr/bin/env groovy
 
-def mvn(args) {
-    steps.sh "${steps.tool 'Maven'}/bin/mvn -o ${args}"
-	}
+def call(body) {
+    echo "Check status"
+
+    (1..3).each {
+        echo "Number: " + it
+    }
+
+    currentBuild.result = 'SUCCESS' //FAILURE to fail
+    return this
+}
