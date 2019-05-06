@@ -1,9 +1,14 @@
 def call(){
     node {
-        stage("Package artifact") {
-        bat "mvn package"
+        stage("core artifact") {
+        bat "cd ${WORKSPACE}/core && mvn clean install"
     }
 
+
+
+        stage("data-Build") {
+        bat "cd ${WORKSPACE}/core && mvn clean install"
+    }
         }
 
 
